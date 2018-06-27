@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BENSON！SUPERMAN HAIRCUT </title>
+</head>
+<body>
+	<h1>Here is Benson's barbershop.</h1>
+	<p>Your convinience is our duty.</p>
+	    <!--Blog Post-->
+    <h2>You could set the time and your barber through this.</h2>
+        <!--1-->
+    <p>No.1: bald </p>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530029683816&di=73def8da4e242045b6d77b9e8482f7f5&imgtype=0&src=http%3A%2F%2Fwww.studentart.com.cn%2Fattachment%2F201106%2F27%2F13892_1309163247SOAS.jpg.thumbs3.jpg">
+        <!--2-->
+    <p>No.2: Medium score </p>
+    <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4240924913,2535586967&fm=27&gp=0.jpg">
+        <!--3-->
+    <p>No.3:Lateral oil head</p>
+    <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=520031881,2562012938&fm=27&gp=0.jpg">
+        <!--4-->
+    
+       <!-- User Form -->
+    <h1>Comments</h1>
+    <form action="{% url 'haircut:home_page' %} " method="POST">
+        {%csrf_token%}
+        <input type="text" name="time" placeholder="Type Your Time"><br>
+        <input type="text" name="barber_name" placeholder="Type Your Barber Name"><br>
+        <input type="text" name="customer_name" placeholder="Type Your Name"><br>
+        <input type="submit">
+
+    </form>
+    
+
+    <!--Display Previous Comments-->
+        <h2>Appointment</h2>
+        {% for appointment in appointments %}
+        <p>Time: {{appointment.time}}</p>
+
+        <p>Barber name: {{appointment.barber_name}}</p>
+        <p>Customer name: {{appointment.customer_name}}</p> <hr>
+        
+        {% endfor %}
+
+
+
+</body>
+</html>
